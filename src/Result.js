@@ -1,22 +1,24 @@
-import React from 'react'
+import React from 'react';
 
-const Result = ({secretNum,term}) => {
-    let result;
-    if(term){
-        if(term>secretNum){
-            result = 'Higher';
-        }else if(term<secretNum){
-            result='Lower';
-        }else if(term==secretNum){
-            result='Yipee! correct';
-        }else{
-            result='Enter valid input';
-        }
+const Result = ({ secretNum, guess }) => {
+  let result;
+  if (guess) {
+    if (guess > secretNum) {
+      result = '🔼 Higher';
+    } else if (guess < secretNum) {
+      result = '🔽 Lower';
+    } else if (guess === secretNum) {
+      result = '🎉 Yipee! Correct';
     }
-    
-  return (
-    <div>Your guessed:{result}</div>
-  )
-}
+  }
 
-export default Result
+  return (
+    <div className="result">
+      <span className={result === '🎉 Yipee! Correct' ? 'correct' : 'incorrect'}>
+        Your guessed: {result}
+      </span>
+    </div>
+  );
+};
+
+export default Result;
