@@ -1,1 +1,0 @@
-This project is normal React Game(Guess the number).
